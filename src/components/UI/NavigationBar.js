@@ -19,7 +19,8 @@ import { Link, Outlet, useNavigate, useParams } from 'react-router-dom'
 const NavigationBar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false)
   const { title } = useParams()
-  console.log(title)
+  // console.log(title)
+
   const [searchTerm, setSearchTerm] = useState(title)
   const navigate = useNavigate()
 
@@ -36,6 +37,7 @@ const NavigationBar = () => {
 
   const handleSearchFromNavBar = (e) => {
     if (searchTerm.length === 0 || e.keyCode !== 13) return
+    console.log(e.keyCode)
 
     navigate(`search/${searchTerm}`)
   }

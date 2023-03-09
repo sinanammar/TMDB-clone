@@ -1,4 +1,4 @@
-import { Box, Image, Spacer, Text, VStack } from '@chakra-ui/react'
+import { Box, Image, Text, VStack } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
@@ -16,8 +16,8 @@ const TrendingCard = (props) => {
             backgroundSize='contain'
             src={`https://image.tmdb.org/t/p/original${props.poster}`}
             borderRadius={10}
-            minH='220'
-            minW='150'
+            minH='220px'
+            minW='150px'
           />
         </Link>
       </Box>
@@ -28,7 +28,6 @@ const TrendingCard = (props) => {
         bottom={7}
         left={2}
         display='flex'
-        // justifyContent='flex-start's
       >
         <Box w='50px' h='0px' maxH='0px'>
           <CircularProgressbar

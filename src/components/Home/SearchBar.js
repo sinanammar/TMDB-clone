@@ -39,9 +39,9 @@ const SearchBar = () => {
           top='200px'
         />
         <Button
+          className='searchButton'
           position='absolute'
           right={-1}
-          className='searchButton'
           type='submit'
           bgGradient='linear(to-r, #1ACFB4, #0ABBD8)'
           color='white'

@@ -8,7 +8,7 @@ import {
   Tbody,
   Td,
 } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const SearchMenu = (props) => {
   const navigate = useNavigate()
@@ -39,7 +39,9 @@ const SearchMenu = (props) => {
                   borderRadius='10px'
                 >
                   <Td
-                    onClick={() => navigate(`/search/${props.title}/keywords`)}
+                    onClick={() => {
+                      navigate(`/search/${props.title}/keywords`)
+                    }}
                   >
                     {item.item}
                   </Td>

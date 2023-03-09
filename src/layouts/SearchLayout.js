@@ -5,6 +5,7 @@ const SearchLayout = () => {
   return (
     <Box>
       <NavigationBar />
+
       <Footer />
     </Box>
   )

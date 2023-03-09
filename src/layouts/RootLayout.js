@@ -1,22 +1,8 @@
-import {
-  Flex,
-  Box,
-  HStack,
-  Avatar,
-  Image,
-  Input,
-  InputLeftElement,
-  Icon,
-  InputGroup,
-  InputRightElement,
-} from '@chakra-ui/react'
-import { AddIcon, SearchIcon, BellIcon } from '@chakra-ui/icons'
-
-import { Link, Outlet, useNavigate, useParams } from 'react-router-dom'
+// Hooks
+import { Outlet } from 'react-router-dom'
 
 // Components
 import Footer from '../components/Footer'
-import { useEffect, useState } from 'react'
 import NavigationBar from '../components/UI/NavigationBar'
 
 const RootLayout = () => {

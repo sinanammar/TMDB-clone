@@ -1,30 +1,29 @@
-import { Box } from '@chakra-ui/react'
+import { Grid, GridItem, Text } from '@chakra-ui/react'
 
+// Hooks
 import React, { useEffect, useState } from 'react'
-import {
-  Grid,
-  GridItem,
-  VStack,
-  HStack,
-  Text,
-  Center,
-  IconButton,
-  CloseIcon,
-  Input,
-} from '@chakra-ui/react'
+import { useParams } from 'react-router-dom'
 
 // API
 import fetchKeywords from '../API/keywords'
 
 // Components
 import SearchMenu from '../components/search/SearchMenu'
-import { useParams } from 'react-router-dom'
 
 const KeywordsSearch = () => {
-  const { title } = useParams()
-  //   console.log(title)
+  const [keywords, setKeywords] = useState([])
 
-  //   useEffect(() => {}, [])
+  const { title } = useParams()
+  // console.log(title)
+
+  useEffect(() => {
+    const keywords = async () => {
+      const keywords = await fetchKeywords(title)
+      setKeywords(keywords)
+    }
+
+    keywords()
+  }, [])
 
   return (
     <Grid templateColumns='repeat(6, 1fr)'>
@@ -40,7 +39,10 @@ const KeywordsSearch = () => {
         <SearchMenu />
       </GridItem>
       <GridItem colSpan={3} mr='8px' mt='30px' ml='24px'>
-        <Text>aaa</Text>
+        {keywords.results &&
+          keywords.results.map((keyword) => {
+            return <Text key={keyword.id}>{keyword.name}</Text>
+          })}
       </GridItem>
     </Grid>
   )

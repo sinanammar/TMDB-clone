@@ -1,12 +1,6 @@
-import {
-  Box,
-  Text,
-  Tabs,
-  TabList,
-  TabPanels,
-  TabPanel,
-  Tab,
-} from '@chakra-ui/react'
+import { Box, Tabs, TabPanels, TabPanel } from '@chakra-ui/react'
+
+// Hooks
 import { useEffect, useState } from 'react'
 
 // Components

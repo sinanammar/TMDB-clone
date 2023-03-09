@@ -1,4 +1,5 @@
 import { Box, Card, Image, Text, VStack } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const SearchResultsItems = ({ id, title, overview, year, poster }) => {

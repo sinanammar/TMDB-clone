@@ -34,6 +34,7 @@ const PopularmovieCard = (props) => {
       year: props.year,
     }
 
+    // GET
     const storedMovies = JSON.parse(localStorage.getItem('watchlist'))
 
     const isNotExist = storedMovies.filter((movie) => movie.id === newMovie.id)
@@ -45,6 +46,7 @@ const PopularmovieCard = (props) => {
       const updatedMovies = props.watchlist.filter(
         (movie) => movie.id !== newMovie.id
       )
+
       props.setWatchlist([...updatedMovies])
       setIsAdded(false)
     }

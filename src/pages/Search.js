@@ -1,17 +1,4 @@
-import {
-  Box,
-  Grid,
-  GridItem,
-  VStack,
-  HStack,
-  Center,
-  IconButton,
-  Text,
-  Input,
-} from '@chakra-ui/react'
-import { CloseIcon } from '@chakra-ui/icons'
-import YearPicker from 'react-year-picker'
-import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core'
+import { Box, Grid, GridItem } from '@chakra-ui/react'
 
 // Hooks
 import { useEffect, useState } from 'react'
@@ -21,6 +8,7 @@ import { useParams } from 'react-router-dom'
 import SearchResultsItems from '../components/search/SearchResultsItems'
 import SearchMenu from '../components/search/SearchMenu'
 import PageIndicator from '../components/PageIndicator'
+import SearchFilters from '../components/search/SearchFilters'
 
 // API
 import fetchSearchResults from '../API/searchResults'
@@ -45,7 +33,7 @@ const Search = () => {
     fetchSearchQuery()
   }, [title, pageIndex, searchResult])
 
-  const yearsFilter = (year) => {
+  const filterByYear = (year) => {
     const filteredMovies = searchResult.filter((movie) => {
       const releaseYear = parseInt(movie.release_date)
       return releaseYear === year
@@ -63,7 +51,7 @@ const Search = () => {
     renderedMovies = filteredMovies
   }
 
-  const handleChange = (data) => {
+  const filterByRating = (data) => {
     const userRating = parseInt(data.target.value * 10)
     const minRating = Math.floor(userRating / 10) * 10
     const maxRating = minRating + 9
@@ -91,30 +79,13 @@ const Search = () => {
           p='20px'
         >
           <SearchMenu title={title} />
-          <VStack gap={6}>
-            <HStack gap={8} alignItems='baseline'>
-              <Text>Filters</Text>
-              <Center bg='gray.100' w='32px' h='32px' borderRadius={5}>
-                <IconButton icon={<CloseIcon />} onClick={cancelFilters} />
-              </Center>
-            </HStack>
-            <Box className='yearPickerContainer'>
-              <Box className='yearPicker'>
-                <YearPicker onChange={yearsFilter} />
-              </Box>
-            </Box>
-            <Box w='30%'>
-              <Text pb='8px'>Rate :</Text>
-              <Input
-                type='number'
-                min='1'
-                max='10'
-                placeholder='Rate..'
-                onChange={handleChange}
-              />
-            </Box>
-          </VStack>
+          <SearchFilters
+            onFilteringByRate={filterByRating}
+            onCancelingFilters={cancelFilters}
+            onFilteringByYear={filterByYear}
+          />
         </GridItem>
+
         <GridItem colSpan={3} mr='8px'>
           {section ? (
             <>

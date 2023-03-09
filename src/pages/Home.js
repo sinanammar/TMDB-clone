@@ -1,13 +1,4 @@
-import {
-  Box,
-  HStack,
-  Text,
-  Image,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-} from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 // Hooks
 import { useState } from 'react'
