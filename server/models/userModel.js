@@ -1,8 +1,7 @@
 const mongoose = require('mongoose')
-const Watchlist = require('../models/watchlistModel')
-const validator = require('validator')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+require('dotenv').config()
 
 const userSchema = new mongoose.Schema(
   {

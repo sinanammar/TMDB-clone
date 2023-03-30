@@ -9,8 +9,6 @@ module.exports.signup = async (req, res) => {
         maxAge: 90000000,
       })
       .send(response)
-
-    // res.status(200).send(response)
   } catch (e) {
     res.status(e.statusCode || 400).send(e.message)
   }
